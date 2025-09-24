@@ -26,6 +26,7 @@ A modern web-based personal assistant that helps you manage emails, reminders, a
 - **💾 Supabase Backend**: Cloud database for conversations, reminders, and state management
 
 ### Task Flow
+
 1. **User Input** → Message Conductor analyzes intent
 2. **Planning Phase** → Task Planner creates execution steps
 3. **Execution Phase** → Task Worker runs tools and integrations
@@ -34,6 +35,7 @@ A modern web-based personal assistant that helps you manage emails, reminders, a
 ## Quick Start
 
 ### Prerequisites
+
 - Python 3.10+
 - Node.js 18+
 - npm
@@ -41,16 +43,19 @@ A modern web-based personal assistant that helps you manage emails, reminders, a
 ### Setup
 
 1. **Clone and navigate to the project**:
+
    ```bash
    cd personal-assistant
    ```
 
 2. **Install Python dependencies**:
+
    ```bash
    pip install -r server/requirements.txt
    ```
 
 3. **Install Node.js dependencies**:
+
    ```bash
    cd client
    npm install
@@ -58,12 +63,14 @@ A modern web-based personal assistant that helps you manage emails, reminders, a
    ```
 
 4. **Configure environment**:
+
    ```bash
    cp .env.example .env
    # Edit .env with your API keys (see configuration section below)
    ```
 
 5. **Start the application**:
+
    ```bash
    python start_web.py
    ```
@@ -77,11 +84,13 @@ A modern web-based personal assistant that helps you manage emails, reminders, a
 Edit the `.env` file with your API keys:
 
 ### Required
+
 - **OPENROUTER_API_KEY**: Get from [openrouter.ai](https://openrouter.ai/) for AI models
 - **SUPABASE_URL**: Your Supabase project URL
 - **SUPABASE_KEY**: Your Supabase anon key
 
 ### Optional
+
 - **COMPOSIO_API_KEY**: Get from [composio.dev](https://composio.dev/) for Gmail integration
 - **COMPOSIO_GMAIL_AUTH_CONFIG_ID**: Gmail auth config ID from Composio
 
@@ -90,6 +99,7 @@ Edit the `.env` file with your API keys:
 Once the web app is running, try these commands in the chat:
 
 ### 📧 Email Commands
+
 - "Check my emails"
 - "Show me emails from Alice"
 - "Summarize today's emails"
@@ -97,6 +107,7 @@ Once the web app is running, try these commands in the chat:
 - "Get my banking emails from the past few days"
 
 ### ⏰ Reminder & Scheduling Commands
+
 - "Remind me to call mom at 6pm"
 - "Set a reminder for my dentist appointment tomorrow at 2pm"
 - "Schedule a task to review emails in 5 minutes"
@@ -104,6 +115,7 @@ Once the web app is running, try these commands in the chat:
 - "Cancel reminder about the meeting"
 
 ### 🔧 Advanced Tasks
+
 - "Analyze my recent banking emails and summarize the transactions"
 - "Check for any important emails and draft responses"
 - "Set up a weekly reminder to clean up my inbox"
@@ -147,6 +159,7 @@ personal-assistant/
 ## Development
 
 ### Backend Development
+
 ```bash
 # Start backend only
 python -m server.server
@@ -156,6 +169,7 @@ python run_tests.py
 ```
 
 ### Frontend Development
+
 ```bash
 cd client
 npm run dev
@@ -164,6 +178,7 @@ npm run dev
 ### Database Setup
 
 The application uses Supabase for data storage. Required tables:
+
 - `conversations`: Chat history
 - `reminders`: Scheduled reminders
 
@@ -172,16 +187,18 @@ Tables are created automatically when you first run the application.
 ## 🚀 Key Architecture Benefits
 
 ### Compared to Traditional Chatbots
-| Feature | Traditional Bots | Personal Assistant |
-|---------|------------------|-------------------|
-| Task Handling | Single-step responses | Multi-step task execution |
-| Planning | None | Intelligent task decomposition |
-| Memory | Session-based | Persistent conversation history |
-| Tools | Limited integrations | Modular tool system |
-| UI | Basic chat | Modern, beautiful interface |
-| Scheduling | Manual | Natural language scheduling |
+
+| Feature       | Traditional Bots      | Personal Assistant              |
+| ------------- | --------------------- | ------------------------------- |
+| Task Handling | Single-step responses | Multi-step task execution       |
+| Planning      | None                  | Intelligent task decomposition  |
+| Memory        | Session-based         | Persistent conversation history |
+| Tools         | Limited integrations  | Modular tool system             |
+| UI            | Basic chat            | Modern, beautiful interface     |
+| Scheduling    | Manual                | Natural language scheduling     |
 
 ### Advanced Capabilities
+
 - **🧠 Intelligent Planning**: Breaks complex tasks into optimal execution steps
 - **🔄 Async Execution**: Background task processing with real-time updates
 - **🎯 Context Awareness**: Maintains conversation context across sessions
@@ -191,22 +208,27 @@ Tables are created automatically when you first run the application.
 ## 🔧 Extending the Assistant
 
 ### Adding New Tools
+
 1. Create tool functions in `server/tools/`
 2. Add tool schemas and registration
 3. Tools are automatically available to the Worker
 
 ### Adding New Capabilities
+
 1. **New Integrations**: Add to the tool system
 2. **Custom Logic**: Extend the Planner or Worker
 3. **UI Components**: Add React components to the web interface
 
 ### Customizing Behavior
+
 - **Planner Logic**: Modify `server/planner/planner.py`
 - **Worker Execution**: Customize `server/workers/task_worker.py`
 - **Conductor Routing**: Update `server/conductor/system_prompt.md`
 
 ### Customizing the UI
+
 The frontend uses shadcn/ui components. Customize:
+
 - `client/src/components/chat/ChatInterface.tsx` for main chat UI
 - `client/src/app/globals.css` for styling
 - Add new components in `client/src/components/`
@@ -214,9 +236,11 @@ The frontend uses shadcn/ui components. Customize:
 ## Deployment
 
 ### Local Development
+
 Use `python start_web.py` for local development.
 
 ### Production Deployment
+
 1. **Backend**: Deploy FastAPI server to cloud platforms (Railway, Heroku, AWS)
 2. **Frontend**: Deploy Next.js app to Vercel, Netlify, or similar
 3. **Database**: Supabase is already cloud-hosted
@@ -224,7 +248,9 @@ Use `python start_web.py` for local development.
 ## 🖼️ Screenshots
 
 ### Modern Chat Interface
+
 The assistant features a beautiful, dark-themed interface with:
+
 - Real-time message updates
 - Typing indicators and smooth animations
 - Markdown rendering for rich responses
@@ -232,6 +258,7 @@ The assistant features a beautiful, dark-themed interface with:
 - Timestamp display and message history
 
 ### Key Features in Action
+
 - **Email Analysis**: Get structured summaries of your banking emails
 - **Smart Scheduling**: Natural language reminder creation
 - **Task Execution**: Multi-step workflows handled automatically
@@ -280,12 +307,14 @@ You'll get a notification when it's time!
 6. **Timeout errors**: Check internet connection and API key validity
 
 ### Debug Mode
+
 ```bash
 # Enable debug logging
 DEBUG=true python start_web.py
 ```
 
 ### Logs
+
 - **Backend logs**: Check console output when running the backend
 - **Frontend logs**: Check browser console for frontend issues
 - **Task execution**: Detailed logs show Planner → Worker → Tool execution flow
@@ -297,6 +326,7 @@ MIT License - Feel free to use this for your own projects!
 ## 🤝 Contributing
 
 This is a modern personal assistant built with cutting-edge AI architecture. Feel free to:
+
 - Fork and customize for your needs
 - Submit issues and feature requests
 - Contribute improvements and new tools
